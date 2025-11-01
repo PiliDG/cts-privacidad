@@ -1,5 +1,2 @@
-[build]
-command = "echo 'No build step needed'"
-
 [deploy]
-startCommand = "npx serve ."
+startCommand = "npm start"
