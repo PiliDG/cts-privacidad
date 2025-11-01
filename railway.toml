@@ -1,0 +1,5 @@
+[build]
+builder = "static"
+
+[static]
+public_dir = "."
