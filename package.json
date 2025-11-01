@@ -1,0 +1,8 @@
+{
+  "name": "cts-privacidad",
+  "version": "1.0.0",
+  "description": "Proyecto CTS - Privacidad y vigilancia masiva",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
