@@ -48,16 +48,57 @@
       font-size: 0.9em;
       margin-top: 50px;
     }
+    /* ---- Estilos del menú superior ---- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      background-color: #20232a;
+      border-bottom: 1px solid #2b2f36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      z-index: 100;
+    }
+    .topbar .logo {
+      color: #61dafb;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .topbar nav a {
+      color: #bbb;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 15px;
+    }
+    .topbar nav a:hover {
+      color: #fff;
+    }
   </style>
 </head>
-<body>
+
+<body id="top">
+  <!-- Menú superior -->
+  <div class="topbar">
+    <a class="logo" href="#top">CTS · Privacidad</a>
+    <nav>
+      <a href="#intro">Introducción</a>
+      <a href="#contexto">Contexto</a>
+      <a href="#impacto">Impacto ético</a>
+      <a href="#cts">Análisis CTS</a>
+      <a href="#innovacion">Innovación</a>
+      <a href="#conclusiones">Conclusiones</a>
+      <a href="#refs">Bibliografía</a>
+    </nav>
+  </div>
 
   <header>
     <h1>Privacidad y Vigilancia Masiva</h1>
     <p>Proyecto Final Integrador – Ciencia, Tecnología y Sociedad</p>
   </header>
 
-  <section>
+  <section id="intro">
     <h2>1. Introducción</h2>
     <p>
       En la actualidad, la privacidad se ha convertido en uno de los temas más debatidos dentro de la relación entre ciencia, tecnología y sociedad. 
@@ -66,7 +107,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="contexto">
     <h2>2. Contexto Científico y Tecnológico</h2>
     <p>
       La vigilancia masiva surge del desarrollo científico en áreas como la inteligencia artificial, el big data y la informática. 
@@ -75,7 +116,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="impacto">
     <h2>3. Impacto Social y Ético</h2>
     <p>
       La vigilancia constante modifica las formas en que las personas se comportan y se relacionan. 
@@ -84,7 +125,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="cts">
     <h2>4. Análisis desde la Perspectiva CTS</h2>
     <p>
       Desde el enfoque de Ciencia, Tecnología y Sociedad, la vigilancia masiva no puede entenderse solo como un fenómeno técnico, 
@@ -93,7 +134,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="innovacion">
     <h2>5. Innovación del Grupo</h2>
     <p>
       Este sitio propone una mirada crítica e interactiva sobre la vigilancia digital, 
@@ -102,7 +143,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="conclusiones">
     <h2>6. Conclusiones</h2>
     <p>
       La privacidad se redefine constantemente en la sociedad tecnológica. 
@@ -111,7 +152,7 @@
     </p>
   </section>
 
-  <section>
+  <section id="refs">
     <h2>7. Bibliografía y Prompts Usados</h2>
     <ul>
       <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
