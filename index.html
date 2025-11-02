@@ -24,24 +24,6 @@
       line-height: 1.6;
     }
 
-    /* Encabezado */
-    header {
-      background: linear-gradient(135deg, var(--pink), #2b2b2b);
-      padding: 50px 20px;
-      text-align: center;
-      color: #fff;
-    }
-
-    header h1 {
-      font-size: 2.6em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      color: #fce4ec;
-      font-size: 1.1em;
-    }
-
     /* Menú superior */
     .topbar {
       position: sticky;
@@ -54,26 +36,31 @@
       padding: 10px 20px;
       z-index: 100;
     }
-
     .topbar .logo {
       color: var(--pink);
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
     }
-
     .topbar nav a {
       color: var(--muted);
       text-decoration: none;
       margin-left: 15px;
       font-size: 15px;
     }
+    .topbar nav a:hover { color: var(--lightpink); }
 
-    .topbar nav a:hover {
-      color: var(--lightpink);
+    /* Encabezado */
+    header {
+      background: linear-gradient(135deg, var(--pink), #2b2b2b);
+      padding: 50px 20px;
+      text-align: center;
+      color: #fff;
     }
+    header h1 { font-size: 2.6em; margin-bottom: 10px; }
+    header p { color: #fce4ec; font-size: 1.1em; }
 
-    /* Secciones */
+    /* Secciones principales (cards) */
     section {
       max-width: 900px;
       margin: 40px auto;
@@ -82,12 +69,53 @@
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(255, 77, 166, 0.2);
     }
-
     section h2 {
       color: var(--pink);
       border-bottom: 2px solid var(--lightpink);
       padding-bottom: 5px;
+      margin-top: 0;
     }
+
+    /* --- FAQ lateral (aparece al costado en escritorio) --- */
+    #faq.aside {
+      max-width: 320px;
+      float: none; /* móvil por defecto */
+      margin: 20px auto;
+    }
+    @media (min-width: 1120px) {
+      #faq.aside {
+        position: sticky;
+        top: 90px;
+        float: right;
+        margin: 20px 40px 20px 20px; /* separa del contenido */
+      }
+      /* separa el flujo de las secciones cuando el FAQ flota a la derecha */
+      .with-aside { max-width: 900px; margin-right: 420px; }
+    }
+
+    .faq-container { margin-top: 12px; }
+    .faq-item {
+      margin-bottom: 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #141414;
+      border: 1px solid rgba(255, 77, 166, 0.25);
+    }
+    .faq-question {
+      width: 100%; text-align: left;
+      background: #1b1b1b; color: var(--lightpink);
+      padding: 14px 16px; border: none; cursor: pointer;
+      font-size: 1em; font-weight: 700; transition: background .25s, color .25s;
+    }
+    .faq-question:hover { background: var(--pink); color: #fff; }
+    .faq-answer {
+      display: none;
+      background-color: #111;
+      padding: 14px 16px;
+      color: var(--text);
+      border-top: 1px solid rgba(255, 77, 166, 0.3);
+    }
+    .faq-answer p { margin: 0; }
 
     /* Citas con imagen */
     .quote {
@@ -95,30 +123,25 @@
       align-items: center;
       margin-top: 25px;
       gap: 20px;
+      flex-wrap: wrap;
     }
-
     .quote-img {
-      width: 140px;
+      width: 160px;
       height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 77, 166, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 77, 166, 0.35);
     }
-
     blockquote {
       background: #111;
       border-left: 4px solid var(--pink);
       padding: 15px 20px;
       font-style: italic;
       margin: 0;
+      flex: 1 1 300px;
     }
+    blockquote cite { display: block; color: var(--lightpink); font-size: 0.9em; margin-top: 10px; }
 
-    blockquote cite {
-      display: block;
-      color: var(--lightpink);
-      font-size: 0.9em;
-      margin-top: 10px;
-    }
-
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -126,6 +149,7 @@
       color: var(--muted);
       font-size: 0.9em;
       margin-top: 60px;
+      clear: both; /* por si el FAQ queda flotando */
     }
   </style>
 </head>
@@ -141,6 +165,7 @@
       <a href="#cts">Análisis CTS</a>
       <a href="#innovacion">Innovación</a>
       <a href="#citas">Frases CTS</a>
+      <a href="#faq">FAQ</a>
       <a href="#conclusiones">Conclusiones</a>
       <a href="#refs">Bibliografía</a>
     </nav>
@@ -151,106 +176,156 @@
     <p>Proyecto Final Integrador – Ciencia, Tecnología y Sociedad</p>
   </header>
 
-  <section id="intro">
-    <h2>1. Introducción</h2>
-    <p>
-      En la actualidad, la privacidad se ha convertido en uno de los temas más debatidos dentro de la relación entre ciencia, tecnología y sociedad. 
-      El avance de los sistemas digitales, el uso masivo de redes sociales y la expansión de los dispositivos inteligentes han generado nuevas formas de vigilancia,
-      muchas veces invisibles, que ponen en tensión los límites entre seguridad, libertad y control.
-    </p>
-  </section>
+  <!-- FAQ lateral (se ubica al costado en escritorios) -->
+  <section id="faq" class="aside">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">¿Qué es la vigilancia masiva?</button>
+        <div class="faq-answer">
+          <p>Es la recolección sistemática de información personal a gran escala, realizada por gobiernos o empresas mediante tecnologías digitales, con fines de control, seguridad o marketing.</p>
+        </div>
+      </div>
 
-  <section id="contexto">
-    <h2>2. Contexto Científico y Tecnológico</h2>
-    <p>
-      La vigilancia masiva surge del desarrollo científico en áreas como la inteligencia artificial, el big data y la informática. 
-      Estas tecnologías permiten recolectar, analizar y cruzar grandes volúmenes de datos personales en tiempo real. 
-      Organismos estatales y corporaciones privadas utilizan esta información para fines de seguridad, marketing o control social.
-    </p>
-  </section>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo afecta la privacidad personal?</button>
+        <div class="faq-answer">
+          <p>Reduce la capacidad de decidir qué compartimos sobre nosotros y genera comportamientos condicionados por la observación constante, afectando la libertad y la autonomía.</p>
+        </div>
+      </div>
 
-  <section id="impacto">
-    <h2>3. Impacto Social y Ético</h2>
-    <p>
-      La vigilancia constante modifica las formas en que las personas se comportan y se relacionan. 
-      Se genera una sensación de observación permanente que afecta la libertad de expresión y la intimidad individual. 
-      Desde el punto de vista ético, se discuten los límites de la recolección de datos y la responsabilidad de quienes los manipulan.
-    </p>
-  </section>
+      <div class="faq-item">
+        <button class="faq-question">¿Qué papel juega la inteligencia artificial?</button>
+        <div class="faq-answer">
+          <p>La IA analiza y predice comportamientos a partir de datos masivos; es clave en reconocimiento facial, análisis de redes sociales y monitoreo automatizado.</p>
+        </div>
+      </div>
 
-  <section id="cts">
-    <h2>4. Análisis desde la Perspectiva CTS</h2>
-    <p>
-      Desde el enfoque de Ciencia, Tecnología y Sociedad, la vigilancia masiva no puede entenderse solo como un fenómeno técnico, 
-      sino como un entramado sociotécnico donde intervienen intereses políticos, económicos y culturales. 
-      La tecnología, lejos de ser neutral, refleja las estructuras de poder que la crean y la utilizan.
-    </p>
-  </section>
-
-  <section id="innovacion">
-    <h2>5. Innovación del Grupo</h2>
-    <p>
-      Este sitio propone una mirada crítica e interactiva sobre la vigilancia digital, 
-      invitando a reflexionar sobre los límites de la privacidad y el rol ciudadano en la era del dato. 
-      El objetivo es concientizar sobre cómo nuestras acciones cotidianas generan información valiosa que puede ser usada para perfilar, predecir y controlar comportamientos.
-    </p>
-  </section>
-
-  <section id="conclusiones">
-    <h2>6. Conclusiones</h2>
-    <p>
-      La privacidad se redefine constantemente en la sociedad tecnológica. 
-      Frente a los avances científicos, es necesario fortalecer los marcos éticos, legales y educativos que permitan proteger la libertad individual sin detener el progreso. 
-      Comprender el fenómeno desde CTS nos ayuda a construir un futuro más consciente y equilibrado entre ciencia, poder y humanidad.
-    </p>
-  </section>
-
-  <section id="citas">
-    <h2>7. Frases destacadas de la bibliografía CTS</h2>
-    <p>Fragmentos y reflexiones de autores que analizan la relación entre ciencia, tecnología y poder:</p>
-
-    <div class="quote">
-      <img src="IMAGEN1_URL" alt="Vigilancia digital" class="quote-img">
-      <blockquote>
-        “La información es poder, pero el poder no siempre se usa con transparencia. La tecnología amplifica nuestras capacidades, pero también nuestros riesgos.”  
-        <cite>– Nick Bostrom, <em>Superinteligencia</em> (2014)</cite>
-      </blockquote>
+      <div class="faq-item">
+        <button class="faq-question">¿Se puede evitar la vigilancia?</button>
+        <div class="faq-answer">
+          <p>No completamente, pero ayuda: cifrado, 2FA, revisar permisos de apps, limitar datos en redes y exigir transparencia a instituciones.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="quote">
-      <img src="IMAGEN2_URL" alt="Observación y datos" class="quote-img">
-      <blockquote>
-        “La tecnociencia no sólo transforma el mundo físico, sino también la estructura misma de las relaciones sociales.”  
-        <cite>– Javier Echeverría, <em>La revolución tecnocientífica</em> (1999)</cite>
-      </blockquote>
-    </div>
-
-    <div class="quote">
-      <img src="IMAGEN3_URL" alt="Cámara de seguridad" class="quote-img">
-      <blockquote>
-        “Vivimos en un entorno donde las máquinas observan, registran y predicen nuestras acciones. La privacidad se convierte en una ilusión.”  
-        <cite>– Nicholas Carr, <em>Atrapados</em> (2011)</cite>
-      </blockquote>
-    </div>
-
-    <blockquote>
-      “El desafío del siglo XXI no es sólo crear conocimiento, sino decidir qué hacemos con él.”  
-      <cite>– Edward O. Wilson, <em>El sentido de la existencia humana</em> (2014)</cite>
-    </blockquote>
   </section>
 
-  <section id="refs">
-    <h2>8. Bibliografía y Prompts Usados</h2>
-    <ul>
-      <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
-      <li>Han, B. C. (2013). <em>La sociedad de la transparencia</em>. Herder.</li>
-      <li>Prompt IA: “Explicame paso a paso cómo publicar una web en Railway con GitHub” – ChatGPT, 1 de noviembre de 2025, 18:00 hs.</li>
-      <li>Prompt IA: “Generar estructura CTS sobre privacidad y vigilancia masiva” – ChatGPT, 1 de noviembre de 2025, 18:45 hs.</li>
-    </ul>
-  </section>
+  <!-- Contenido con margen a la derecha para que el FAQ quede al costado en escritorio -->
+  <div class="with-aside">
+    <section id="intro">
+      <h2>1. Introducción</h2>
+      <p>
+        En la actualidad, la privacidad se ha convertido en uno de los temas más debatidos dentro de la relación entre ciencia, tecnología y sociedad. 
+        El avance de los sistemas digitales, el uso masivo de redes sociales y la expansión de los dispositivos inteligentes han generado nuevas formas de vigilancia,
+        muchas veces invisibles, que ponen en tensión los límites entre seguridad, libertad y control.
+      </p>
+    </section>
+
+    <section id="contexto">
+      <h2>2. Contexto Científico y Tecnológico</h2>
+      <p>
+        La vigilancia masiva surge del desarrollo científico en áreas como la inteligencia artificial, el big data y la informática. 
+        Estas tecnologías permiten recolectar, analizar y cruzar grandes volúmenes de datos personales en tiempo real. 
+        Organismos estatales y corporaciones privadas utilizan esta información para fines de seguridad, marketing o control social.
+      </p>
+    </section>
+
+    <section id="impacto">
+      <h2>3. Impacto Social y Ético</h2>
+      <p>
+        La vigilancia constante modifica las formas en que las personas se comportan y se relacionan. 
+        Se genera una sensación de observación permanente que afecta la libertad de expresión y la intimidad individual. 
+        Desde el punto de vista ético, se discuten los límites de la recolección de datos y la responsabilidad de quienes los manipulan.
+      </p>
+    </section>
+
+    <section id="cts">
+      <h2>4. Análisis desde la Perspectiva CTS</h2>
+      <p>
+        Desde el enfoque de Ciencia, Tecnología y Sociedad, la vigilancia masiva no puede entenderse solo como un fenómeno técnico, 
+        sino como un entramado sociotécnico donde intervienen intereses políticos, económicos y culturales. 
+        La tecnología, lejos de ser neutral, refleja las estructuras de poder que la crean y la utilizan.
+      </p>
+    </section>
+
+    <section id="innovacion">
+      <h2>5. Innovación del Grupo</h2>
+      <p>
+        Este sitio propone una mirada crítica e interactiva sobre la vigilancia digital, 
+        invitando a reflexionar sobre los límites de la privacidad y el rol ciudadano en la era del dato. 
+        El objetivo es concientizar sobre cómo nuestras acciones cotidianas generan información valiosa que puede ser usada para perfilar, predecir y controlar comportamientos.
+      </p>
+    </section>
+
+    <section id="conclusiones">
+      <h2>6. Conclusiones</h2>
+      <p>
+        La privacidad se redefine constantemente en la sociedad tecnológica. 
+        Frente a los avances científicos, es necesario fortalecer los marcos éticos, legales y educativos que permitan proteger la libertad individual sin detener el progreso. 
+        Comprender el fenómeno desde CTS nos ayuda a construir un futuro más consciente y equilibrado entre ciencia, poder y humanidad.
+      </p>
+    </section>
+
+    <section id="citas">
+      <h2>7. Frases destacadas de la bibliografía CTS</h2>
+      <p>Fragmentos y reflexiones de autores que analizan la relación entre ciencia, tecnología y poder:</p>
+
+      <div class="quote">
+        <img src="https://cdn.pixabay.com/photo/2021/05/19/18/46/cyber-security-6268578_1280.png" alt="Ciberseguridad" class="quote-img">
+        <blockquote>
+          “La información es poder, pero el poder no siempre se usa con transparencia. La tecnología amplifica nuestras capacidades, pero también nuestros riesgos.”  
+          <cite>– Nick Bostrom, <em>Superinteligencia</em> (2014)</cite>
+        </blockquote>
+      </div>
+
+      <div class="quote">
+        <img src="https://cdn.pixabay.com/photo/2020/07/02/19/08/privacy-5365149_1280.png" alt="Privacidad en línea" class="quote-img">
+        <blockquote>
+          “La tecnociencia no sólo transforma el mundo físico, sino también la estructura misma de las relaciones sociales.”  
+          <cite>– Javier Echeverría, <em>La revolución tecnocientífica</em> (1999)</cite>
+        </blockquote>
+      </div>
+
+      <div class="quote">
+        <img src="https://cdn.pixabay.com/photo/2021/04/06/19/42/surveillance-6155838_1280.png" alt="Vigilancia digital" class="quote-img">
+        <blockquote>
+          “Vivimos en un entorno donde las máquinas observan, registran y predicen nuestras acciones. La privacidad se convierte en una ilusión.”  
+          <cite>– Nicholas Carr, <em>Atrapados</em> (2011)</cite>
+        </blockquote>
+      </div>
+
+      <blockquote>
+        “El desafío del siglo XXI no es sólo crear conocimiento, sino decidir qué hacemos con él.”  
+        <cite>– Edward O. Wilson, <em>El sentido de la existencia humana</em> (2014)</cite>
+      </blockquote>
+    </section>
+
+    <section id="refs">
+      <h2>8. Bibliografía y Prompts Usados</h2>
+      <ul>
+        <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
+        <li>Han, B. C. (2013). <em>La sociedad de la transparencia</em>. Herder.</li>
+        <li>Prompt IA: “Explicame paso a paso cómo publicar una web en Railway con GitHub” — ChatGPT, 01/11/2025 18:00 (GMT-3).</li>
+        <li>Prompt IA: “Generar estructura CTS sobre privacidad y vigilancia masiva” — ChatGPT, 01/11/2025 18:45 (GMT-3).</li>
+      </ul>
+    </section>
+  </div>
 
   <footer>
     <p>© 2025 - Proyecto CTS: Privacidad y Vigilancia Masiva | Desarrollado por Pili</p>
   </footer>
+
+  <!-- Script FAQ -->
+  <script>
+    const questions = document.querySelectorAll(".faq-question");
+    questions.forEach(q => {
+      q.addEventListener("click", () => {
+        const answer = q.nextElementSibling;
+        const open = answer.style.display === "block";
+        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+        answer.style.display = open ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>
