@@ -6,101 +6,126 @@
   <title>Privacidad y Vigilancia Masiva - Proyecto CTS</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* 🌸 Paleta rosada + negro */
+    :root {
+      --bg: #0a0a0a;
+      --card: #1a1a1d;
+      --pink: #ff4da6;
+      --lightpink: #ff9ecf;
+      --text: #f5f5f5;
+      --muted: #a8a8a8;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background-color: #0f1114;
-      color: #f5f5f5;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
+
+    /* Encabezado */
     header {
-      background-color: #20232a;
-      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--pink), #2b2b2b);
+      padding: 50px 20px;
       text-align: center;
+      color: #fff;
     }
+
     header h1 {
-      font-size: 2.5em;
-      color: #61dafb;
+      font-size: 2.6em;
       margin-bottom: 10px;
     }
+
     header p {
-      color: #bbb;
+      color: #fce4ec;
       font-size: 1.1em;
     }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #181a1f;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-    section h2 {
-      color: #61dafb;
-      border-bottom: 2px solid #61dafb;
-      padding-bottom: 5px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #20232a;
-      color: #aaa;
-      font-size: 0.9em;
-      margin-top: 50px;
-    }
-    /* ---- Estilos del menú superior ---- */
+
+    /* Menú superior */
     .topbar {
       position: sticky;
       top: 0;
-      background-color: #20232a;
-      border-bottom: 1px solid #2b2f36;
+      background-color: #1a1a1a;
+      border-bottom: 2px solid var(--pink);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
       z-index: 100;
     }
+
     .topbar .logo {
-      color: #61dafb;
+      color: var(--pink);
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
     }
+
     .topbar nav a {
-      color: #bbb;
+      color: var(--muted);
       text-decoration: none;
       margin-left: 15px;
       font-size: 15px;
     }
+
     .topbar nav a:hover {
-      color: #fff;
+      color: var(--lightpink);
     }
 
-    /* ---- Citas con imágenes ---- */
+    /* Secciones */
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 25px;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 77, 166, 0.2);
+    }
+
+    section h2 {
+      color: var(--pink);
+      border-bottom: 2px solid var(--lightpink);
+      padding-bottom: 5px;
+    }
+
+    /* Citas con imagen */
     .quote {
       display: flex;
       align-items: center;
       margin-top: 25px;
       gap: 20px;
     }
+
     .quote-img {
       width: 140px;
       height: auto;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(97, 218, 251, 0.4);
+      box-shadow: 0 0 10px rgba(255, 77, 166, 0.3);
     }
+
     blockquote {
       background: #111;
-      border-left: 4px solid #61dafb;
+      border-left: 4px solid var(--pink);
       padding: 15px 20px;
       font-style: italic;
       margin: 0;
     }
+
     blockquote cite {
       display: block;
-      color: #bbb;
+      color: var(--lightpink);
       font-size: 0.9em;
       margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: var(--muted);
+      font-size: 0.9em;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -180,13 +205,12 @@
     </p>
   </section>
 
-  <!-- NUEVA SECCIÓN DE FRASES -->
   <section id="citas">
     <h2>7. Frases destacadas de la bibliografía CTS</h2>
     <p>Fragmentos y reflexiones de autores que analizan la relación entre ciencia, tecnología y poder:</p>
 
     <div class="quote">
-      <img src="https://files.catbox.moe/9565e848.png" alt="Vigilancia digital" class="quote-img">
+      <img src="IMAGEN1_URL" alt="Vigilancia digital" class="quote-img">
       <blockquote>
         “La información es poder, pero el poder no siempre se usa con transparencia. La tecnología amplifica nuestras capacidades, pero también nuestros riesgos.”  
         <cite>– Nick Bostrom, <em>Superinteligencia</em> (2014)</cite>
@@ -194,7 +218,7 @@
     </div>
 
     <div class="quote">
-      <img src="https://files.catbox.moe/151b1dce.png" alt="Observación y datos" class="quote-img">
+      <img src="IMAGEN2_URL" alt="Observación y datos" class="quote-img">
       <blockquote>
         “La tecnociencia no sólo transforma el mundo físico, sino también la estructura misma de las relaciones sociales.”  
         <cite>– Javier Echeverría, <em>La revolución tecnocientífica</em> (1999)</cite>
@@ -202,7 +226,7 @@
     </div>
 
     <div class="quote">
-      <img src="https://files.catbox.moe/b90c5187.png" alt="Cámara de seguridad" class="quote-img">
+      <img src="IMAGEN3_URL" alt="Cámara de seguridad" class="quote-img">
       <blockquote>
         “Vivimos en un entorno donde las máquinas observan, registran y predicen nuestras acciones. La privacidad se convierte en una ilusión.”  
         <cite>– Nicholas Carr, <em>Atrapados</em> (2011)</cite>
@@ -228,6 +252,5 @@
   <footer>
     <p>© 2025 - Proyecto CTS: Privacidad y Vigilancia Masiva | Desarrollado por Pili</p>
   </footer>
-
 </body>
 </html>
