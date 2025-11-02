@@ -1,4 +1,4 @@
-/* Paleta base rosado + negro */
+/* 🌸 Paleta base rosado + negro */
 :root {
   --bg: #0a0a0a;
   --card: #18181c;
@@ -79,29 +79,86 @@ section h2 {
   padding-bottom: 5px;
 }
 
+/* ---- FAQ lateral ---- */
+#faq.aside {
+  max-width: 320px;
+  float: none;
+  margin: 20px auto;
+}
+
+@media (min-width: 1120px) {
+  #faq.aside {
+    position: sticky;
+    top: 90px;
+    float: right;
+    margin: 20px 40px 20px 20px;
+  }
+  .with-aside {
+    max-width: 900px;
+    margin-right: 420px;
+  }
+}
+
+/* FAQ */
+.faq-container {
+  margin-top: 12px;
+}
+.faq-item {
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #141414;
+  border: 1px solid rgba(255, 77, 166, 0.25);
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: #1b1b1b;
+  color: var(--lightpink);
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 700;
+  transition: background 0.25s, color 0.25s;
+}
+.faq-question:hover {
+  background: var(--pink);
+  color: #fff;
+}
+.faq-answer {
+  display: none;
+  background-color: #111;
+  padding: 14px 16px;
+  color: var(--text);
+  border-top: 1px solid rgba(255, 77, 166, 0.3);
+}
+.faq-answer p {
+  margin: 0;
+}
+
 /* Citas con imagen */
 .quote {
   display: flex;
   align-items: center;
   margin-top: 25px;
   gap: 20px;
+  flex-wrap: wrap;
 }
-
 .quote-img {
-  width: 140px;
+  width: 160px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 77, 166, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 77, 166, 0.35);
 }
-
 blockquote {
   background: #111;
   border-left: 4px solid var(--pink);
   padding: 15px 20px;
   font-style: italic;
   margin: 0;
+  flex: 1 1 300px;
 }
-
 blockquote cite {
   display: block;
   color: var(--lightpink);
@@ -117,4 +174,5 @@ footer {
   color: var(--muted);
   font-size: 0.9em;
   margin-top: 60px;
+  clear: both;
 }
