@@ -75,6 +75,33 @@
     .topbar nav a:hover {
       color: #fff;
     }
+
+    /* ---- Citas con imágenes ---- */
+    .quote {
+      display: flex;
+      align-items: center;
+      margin-top: 25px;
+      gap: 20px;
+    }
+    .quote-img {
+      width: 140px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(97, 218, 251, 0.4);
+    }
+    blockquote {
+      background: #111;
+      border-left: 4px solid #61dafb;
+      padding: 15px 20px;
+      font-style: italic;
+      margin: 0;
+    }
+    blockquote cite {
+      display: block;
+      color: #bbb;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -88,6 +115,7 @@
       <a href="#impacto">Impacto ético</a>
       <a href="#cts">Análisis CTS</a>
       <a href="#innovacion">Innovación</a>
+      <a href="#citas">Frases CTS</a>
       <a href="#conclusiones">Conclusiones</a>
       <a href="#refs">Bibliografía</a>
     </nav>
@@ -152,8 +180,43 @@
     </p>
   </section>
 
+  <!-- NUEVA SECCIÓN DE FRASES -->
+  <section id="citas">
+    <h2>7. Frases destacadas de la bibliografía CTS</h2>
+    <p>Fragmentos y reflexiones de autores que analizan la relación entre ciencia, tecnología y poder:</p>
+
+    <div class="quote">
+      <img src="https://files.catbox.moe/9565e848.png" alt="Vigilancia digital" class="quote-img">
+      <blockquote>
+        “La información es poder, pero el poder no siempre se usa con transparencia. La tecnología amplifica nuestras capacidades, pero también nuestros riesgos.”  
+        <cite>– Nick Bostrom, <em>Superinteligencia</em> (2014)</cite>
+      </blockquote>
+    </div>
+
+    <div class="quote">
+      <img src="https://files.catbox.moe/151b1dce.png" alt="Observación y datos" class="quote-img">
+      <blockquote>
+        “La tecnociencia no sólo transforma el mundo físico, sino también la estructura misma de las relaciones sociales.”  
+        <cite>– Javier Echeverría, <em>La revolución tecnocientífica</em> (1999)</cite>
+      </blockquote>
+    </div>
+
+    <div class="quote">
+      <img src="https://files.catbox.moe/b90c5187.png" alt="Cámara de seguridad" class="quote-img">
+      <blockquote>
+        “Vivimos en un entorno donde las máquinas observan, registran y predicen nuestras acciones. La privacidad se convierte en una ilusión.”  
+        <cite>– Nicholas Carr, <em>Atrapados</em> (2011)</cite>
+      </blockquote>
+    </div>
+
+    <blockquote>
+      “El desafío del siglo XXI no es sólo crear conocimiento, sino decidir qué hacemos con él.”  
+      <cite>– Edward O. Wilson, <em>El sentido de la existencia humana</em> (2014)</cite>
+    </blockquote>
+  </section>
+
   <section id="refs">
-    <h2>7. Bibliografía y Prompts Usados</h2>
+    <h2>8. Bibliografía y Prompts Usados</h2>
     <ul>
       <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
       <li>Han, B. C. (2013). <em>La sociedad de la transparencia</em>. Herder.</li>
