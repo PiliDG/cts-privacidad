@@ -1,4 +1,4 @@
-// Animación de escritura del encabezado
+// Animación del encabezado
 document.addEventListener("DOMContentLoaded", () => {
   const text = "Bienvenidos al Proyecto CTS: Privacidad y Vigilancia Masiva";
   const typewriter = document.getElementById("typewriter");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   typing();
 });
 
-// Lógica del FAQ
+// FAQ interactivo
 const questions = document.querySelectorAll(".faq-question");
 questions.forEach(q => {
   q.addEventListener("click", () => {
@@ -24,19 +24,18 @@ questions.forEach(q => {
   });
 });
 
-// Mini test
+// Mini test actualizado
 let score = 0;
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
-
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     score += parseInt(btn.dataset.value);
-    btn.style.opacity = 0.5;
-    if (score >= 3) {
-      resultDiv.textContent = "💪 Sos consciente y crítica con la tecnología. Protegés tu privacidad.";
-    } else if (score === 2) {
-      resultDiv.textContent = "🧠 Mantenés equilibrio entre libertad y seguridad digital.";
+    const total = 6;
+    if (score >= 5) {
+      resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
+    } else if (score >= 3) {
+      resultDiv.textContent = "🧠 Mantenés un equilibrio entre libertad y seguridad digital.";
     } else {
       resultDiv.textContent = "😅 Compartís mucho... ¡Atención con tu huella digital!";
     }
