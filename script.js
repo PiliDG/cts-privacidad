@@ -24,20 +24,26 @@ questions.forEach(q => {
   });
 });
 
-// Mini test actualizado
+// Mini test actualizado con feedback visual
 let score = 0;
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
+
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
+    btn.classList.add("selected");
+    btn.parentNode.querySelectorAll(".btn").forEach(other => {
+      if (other !== btn) other.classList.remove("selected");
+    });
+
     score += parseInt(btn.dataset.value);
     const total = 6;
     if (score >= 5) {
-      resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
+      resultDiv.textContent = "💪 Sos muy consciente y cuidados@ con tu privacidad digital.";
     } else if (score >= 3) {
       resultDiv.textContent = "🧠 Mantenés un equilibrio entre libertad y seguridad digital.";
     } else {
-      resultDiv.textContent = "😅 Compartís mucho... ¡Atención con tu huella digital!";
+      resultDiv.textContent = "😅 Compartís mucho... ¡Cuidado con tu huella digital!";
     }
   });
 });
