@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   typing();
 });
 
-// FAQ
+// FAQ interactivo
 const questions = document.querySelectorAll(".faq-question");
 questions.forEach(q => {
   q.addEventListener("click", () => {
@@ -24,25 +24,27 @@ questions.forEach(q => {
   });
 });
 
-// Test: cada opción queda marcada en gris
+// Test: cada opción se marca en gris y permanece así
 let score = 0;
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
 
+// Guarda qué preguntas ya respondieron
+const answered = new Set();
+
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    // desmarcar botones de esa pregunta
-    const parent = btn.parentNode;
-    parent.querySelectorAll(".btn").forEach(sib => sib.classList.remove("selected"));
-    // marcar el elegido
+    // marcar el botón elegido
     btn.classList.add("selected");
 
-    // recalcular puntuación total
-    const allSelected = document.querySelectorAll(".quiz .btn.selected");
-    score = 0;
-    allSelected.forEach(sel => (score += parseInt(sel.dataset.value)));
+    // identificar la pregunta
+    const questionText = btn.previousElementSibling?.textContent || "";
+    if (!answered.has(questionText)) {
+      answered.add(questionText);
+      score += parseInt(btn.dataset.value);
+    }
 
-    // mostrar resultado
+    // mostrar resultado dinámico
     if (score >= 5) {
       resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
     } else if (score >= 3) {
