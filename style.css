@@ -48,12 +48,8 @@ header p { color: #fbe8f2; }
   max-width: 1200px; margin: 0 auto;
   gap: 20px;
 }
-.main-column {
-  flex: 2 1 600px;
-}
-.side-column {
-  flex: 1 1 350px;
-}
+.main-column { flex: 2 1 600px; }
+.side-column { flex: 1 1 350px; }
 section {
   background: var(--card);
   border-radius: 12px;
@@ -79,14 +75,8 @@ section h2 {
 
 /* Casos */
 .casos-container { display: flex; flex-direction: column; gap: 15px; }
-.caso {
-  display: flex; gap: 10px; background: #111; border-radius: 10px;
-  padding: 10px; align-items: center;
-  box-shadow: 0 0 10px rgba(255,77,166,0.2);
-}
-.caso img {
-  width: 100px; height: 70px; object-fit: cover; border-radius: 8px;
-}
+.caso { display: flex; gap: 10px; background: #111; border-radius: 10px; padding: 10px; align-items: center; box-shadow: 0 0 10px rgba(255,77,166,0.2); }
+.caso img { width: 100px; height: 70px; object-fit: cover; border-radius: 8px; }
 .caso h3 { color: var(--lightpink); margin: 0; }
 .caso p { color: var(--text); margin-top: 5px; font-size: 0.9em; }
 
@@ -97,6 +87,11 @@ section h2 {
   margin: 5px; border-radius: 8px; cursor: pointer; transition: 0.3s;
 }
 .btn:hover { background: var(--lightpink); }
+.btn.selected {
+  background-color: #444;
+  color: #fff;
+  box-shadow: inset 0 0 5px rgba(255,77,166,0.3);
+}
 #result { margin-top: 20px; font-weight: bold; color: var(--lightpink); }
 
 /* Footer */
@@ -122,12 +117,4 @@ footer {
 @keyframes typing { from { width: 0 } to { width: 100% } }
 @keyframes blink { 50% { border-color: transparent } }
 
-@media (max-width: 900px) {
-  .content-layout { flex-direction: column; }
-}
-
-.btn.selected {
-  background-color: #444;
-  color: #fff;
-  box-shadow: inset 0 0 5px rgba(255,77,166,0.3);
-}
+@media (max-width: 900px) { .content-layout { flex-direction: column; } }
