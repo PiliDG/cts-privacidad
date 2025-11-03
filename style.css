@@ -12,7 +12,7 @@
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
   z-index: -1;
-  background: linear-gradient(120deg, #0a0a0a, #1c1c1c, #2b0e1f);
+  background: linear-gradient(120deg, #0a0a0a, #1f1a1c, #2b0e1f);
   background-size: 300% 300%;
   animation: gradientMove 20s ease infinite;
 }
@@ -23,17 +23,11 @@
 }
 
 /* General */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  color: var(--text);
-  line-height: 1.6;
-}
+body { margin: 0; font-family: 'Segoe UI', sans-serif; color: var(--text); line-height: 1.6; }
 
 /* Menú */
 .topbar {
-  position: sticky;
-  top: 0;
+  position: sticky; top: 0;
   background-color: rgba(26,26,26,0.95);
   border-bottom: 2px solid var(--pink);
   display: flex; justify-content: space-between; align-items: center;
@@ -47,14 +41,25 @@ body {
 header { text-align: center; padding: 80px 20px; color: #fff; }
 header p { color: #fbe8f2; }
 
-/* Secciones */
+/* Layout */
+.content-layout {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: flex-start;
+  max-width: 1200px; margin: 0 auto;
+  gap: 20px;
+}
+.main-column {
+  flex: 2 1 600px;
+}
+.side-column {
+  flex: 1 1 350px;
+}
 section {
-  max-width: 900px;
-  margin: 40px auto;
   background: var(--card);
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 0 15px rgba(255, 77, 166, 0.25);
+  margin-bottom: 30px;
 }
 section h2 {
   color: var(--pink);
@@ -72,23 +77,23 @@ section h2 {
 .faq-question:hover { background: var(--pink); color: #fff; }
 .faq-answer { display: none; background-color: #111; padding: 14px 16px; }
 
-/* Casos reales */
-.casos-container { display: flex; flex-direction: column; gap: 20px; }
+/* Casos */
+.casos-container { display: flex; flex-direction: column; gap: 15px; }
 .caso {
-  display: flex; gap: 15px; background: #111; border-radius: 10px;
-  padding: 15px; align-items: center;
+  display: flex; gap: 10px; background: #111; border-radius: 10px;
+  padding: 10px; align-items: center;
   box-shadow: 0 0 10px rgba(255,77,166,0.2);
 }
 .caso img {
-  width: 150px; height: 100px; object-fit: cover; border-radius: 8px;
+  width: 100px; height: 70px; object-fit: cover; border-radius: 8px;
 }
 .caso h3 { color: var(--lightpink); margin: 0; }
-.caso p { color: var(--text); margin-top: 5px; }
+.caso p { color: var(--text); margin-top: 5px; font-size: 0.9em; }
 
 /* Test */
 .quiz { text-align: center; }
 .btn {
-  background: var(--pink); border: none; color: white; padding: 10px 20px;
+  background: var(--pink); border: none; color: white; padding: 8px 18px;
   margin: 5px; border-radius: 8px; cursor: pointer; transition: 0.3s;
 }
 .btn:hover { background: var(--lightpink); }
@@ -104,14 +109,7 @@ footer {
   margin-top: 60px;
 }
 
-/* Animación de texto */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink {
-  50% { border-color: transparent }
-}
+/* Efecto máquina de escribir */
 #typewriter {
   display: inline-block;
   overflow: hidden;
@@ -120,4 +118,10 @@ footer {
   animation: typing 3s steps(40,end), blink .75s step-end infinite;
   font-size: 2.2em;
   color: var(--lightpink);
+}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
+
+@media (max-width: 900px) {
+  .content-layout { flex-direction: column; }
 }
