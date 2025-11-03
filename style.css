@@ -91,7 +91,7 @@ section h2 {
 .book-card {
   min-width: 280px; background: #1a1a1d; border-radius: 12px; padding: 20px;
   box-shadow: 0 0 15px rgba(255,77,166,0.3); color: var(--text); flex: 0 0 auto;
-  transition: transform 0.3s ease;
+  transition: transform 3s ease;
 }
 .book-card:hover { transform: scale(1.05); }
 .book-card h3 { color: var(--lightpink); }
@@ -138,3 +138,4 @@ footer {
 @keyframes blink { 50% { border-color: transparent } }
 
 @media (max-width: 900px) { .content-layout { flex-direction: column; } }
+
