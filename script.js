@@ -55,8 +55,8 @@ buttons.forEach(btn => {
 const carousel = document.querySelector(".carousel");
 if (carousel) {
   let scrollAmount = 0;
-  const scrollStep = 320; // desplazamiento por tarjeta
-  const scrollDelay = 5000; // milisegundos entre desplazamientos
+  const scrollStep = 220; // desplazamiento por tarjeta
+  const scrollDelay = 12000; // milisegundos entre desplazamientos
 
   function autoScroll() {
     if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 5) {
