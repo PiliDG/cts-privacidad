@@ -1,160 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacidad y Vigilancia Masiva - Proyecto CTS</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* 🌸 Paleta rosada + negro */
-    :root {
-      --bg: #0a0a0a;
-      --card: #1a1a1d;
-      --pink: #ff4da6;
-      --lightpink: #ff9ecf;
-      --text: #f5f5f5;
-      --muted: #a8a8a8;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* Menú superior */
-    .topbar {
-      position: sticky;
-      top: 0;
-      background-color: #1a1a1a;
-      border-bottom: 2px solid var(--pink);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      z-index: 100;
-    }
-    .topbar .logo {
-      color: var(--pink);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .topbar nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 15px;
-      font-size: 15px;
-    }
-    .topbar nav a:hover { color: var(--lightpink); }
-
-    /* Encabezado */
-    header {
-      background: linear-gradient(135deg, var(--pink), #2b2b2b);
-      padding: 50px 20px;
-      text-align: center;
-      color: #fff;
-    }
-    header h1 { font-size: 2.6em; margin-bottom: 10px; }
-    header p { color: #fce4ec; font-size: 1.1em; }
-
-    /* Secciones principales (cards) */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 25px;
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 77, 166, 0.2);
-    }
-    section h2 {
-      color: var(--pink);
-      border-bottom: 2px solid var(--lightpink);
-      padding-bottom: 5px;
-      margin-top: 0;
-    }
-
-    /* --- FAQ lateral (aparece al costado en escritorio) --- */
-    #faq.aside {
-      max-width: 320px;
-      float: none; /* móvil por defecto */
-      margin: 20px auto;
-    }
-    @media (min-width: 1120px) {
-      #faq.aside {
-        position: sticky;
-        top: 90px;
-        float: right;
-        margin: 20px 40px 20px 20px; /* separa del contenido */
-      }
-      /* separa el flujo de las secciones cuando el FAQ flota a la derecha */
-      .with-aside { max-width: 900px; margin-right: 420px; }
-    }
-
-    .faq-container { margin-top: 12px; }
-    .faq-item {
-      margin-bottom: 12px;
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #141414;
-      border: 1px solid rgba(255, 77, 166, 0.25);
-    }
-    .faq-question {
-      width: 100%; text-align: left;
-      background: #1b1b1b; color: var(--lightpink);
-      padding: 14px 16px; border: none; cursor: pointer;
-      font-size: 1em; font-weight: 700; transition: background .25s, color .25s;
-    }
-    .faq-question:hover { background: var(--pink); color: #fff; }
-    .faq-answer {
-      display: none;
-      background-color: #111;
-      padding: 14px 16px;
-      color: var(--text);
-      border-top: 1px solid rgba(255, 77, 166, 0.3);
-    }
-    .faq-answer p { margin: 0; }
-
-    /* Citas con imagen */
-    .quote {
-      display: flex;
-      align-items: center;
-      margin-top: 25px;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .quote-img {
-      width: 160px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(255, 77, 166, 0.35);
-    }
-    blockquote {
-      background: #111;
-      border-left: 4px solid var(--pink);
-      padding: 15px 20px;
-      font-style: italic;
-      margin: 0;
-      flex: 1 1 300px;
-    }
-    blockquote cite { display: block; color: var(--lightpink); font-size: 0.9em; margin-top: 10px; }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: var(--muted);
-      font-size: 0.9em;
-      margin-top: 60px;
-      clear: both; /* por si el FAQ queda flotando */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body id="top">
+<body>
+  <!-- Fondo animado -->
+  <div class="background"></div>
+
   <!-- Menú superior -->
   <div class="topbar">
     <a class="logo" href="#top">CTS · Privacidad</a>
@@ -163,55 +19,20 @@
       <a href="#contexto">Contexto</a>
       <a href="#impacto">Impacto ético</a>
       <a href="#cts">Análisis CTS</a>
-      <a href="#innovacion">Innovación</a>
-      <a href="#citas">Frases CTS</a>
       <a href="#faq">FAQ</a>
-      <a href="#conclusiones">Conclusiones</a>
+      <a href="#casos">Casos Reales</a>
+      <a href="#test">Test</a>
       <a href="#refs">Bibliografía</a>
     </nav>
   </div>
 
-  <header>
-    <h1>Privacidad y Vigilancia Masiva</h1>
-    <p>Proyecto Final Integrador – Ciencia, Tecnología y Sociedad</p>
+  <!-- Encabezado -->
+  <header id="top">
+    <h1 id="typewriter"></h1>
+    <p>Explorá cómo la ciencia y la tecnología transforman nuestra privacidad en la era digital.</p>
   </header>
 
-  <!-- FAQ lateral (se ubica al costado en escritorios) -->
-  <section id="faq" class="aside">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq-container">
-      <div class="faq-item">
-        <button class="faq-question">¿Qué es la vigilancia masiva?</button>
-        <div class="faq-answer">
-          <p>Es la recolección sistemática de información personal a gran escala, realizada por gobiernos o empresas mediante tecnologías digitales, con fines de control, seguridad o marketing.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">¿Cómo afecta la privacidad personal?</button>
-        <div class="faq-answer">
-          <p>Reduce la capacidad de decidir qué compartimos sobre nosotros y genera comportamientos condicionados por la observación constante, afectando la libertad y la autonomía.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">¿Qué papel juega la inteligencia artificial?</button>
-        <div class="faq-answer">
-          <p>La IA analiza y predice comportamientos a partir de datos masivos; es clave en reconocimiento facial, análisis de redes sociales y monitoreo automatizado.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">¿Se puede evitar la vigilancia?</button>
-        <div class="faq-answer">
-          <p>No completamente, pero ayuda: cifrado, 2FA, revisar permisos de apps, limitar datos en redes y exigir transparencia a instituciones.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contenido con margen a la derecha para que el FAQ quede al costado en escritorio -->
-  <div class="with-aside">
+  <main>
     <section id="intro">
       <h2>1. Introducción</h2>
       <p>
@@ -248,84 +69,105 @@
       </p>
     </section>
 
-    <section id="innovacion">
-      <h2>5. Innovación del Grupo</h2>
-      <p>
-        Este sitio propone una mirada crítica e interactiva sobre la vigilancia digital, 
-        invitando a reflexionar sobre los límites de la privacidad y el rol ciudadano en la era del dato. 
-        El objetivo es concientizar sobre cómo nuestras acciones cotidianas generan información valiosa que puede ser usada para perfilar, predecir y controlar comportamientos.
-      </p>
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>5. Preguntas Frecuentes</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">¿Qué es la vigilancia masiva?</button>
+          <div class="faq-answer">
+            <p>Es la recolección sistemática de información personal a gran escala, realizada por gobiernos o empresas mediante tecnologías digitales, con fines de control, seguridad o marketing.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">¿Cómo afecta la privacidad personal?</button>
+          <div class="faq-answer">
+            <p>Reduce la capacidad de decidir qué compartimos y genera comportamientos condicionados por la observación constante, afectando la libertad y la autonomía.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">¿Qué papel juega la inteligencia artificial?</button>
+          <div class="faq-answer">
+            <p>La IA analiza y predice comportamientos a partir de datos masivos; es clave en reconocimiento facial, análisis de redes sociales y monitoreo automatizado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">¿Se puede evitar la vigilancia?</button>
+          <div class="faq-answer">
+            <p>No completamente, pero se puede reducir usando cifrado, configurando la privacidad en redes, y exigiendo transparencia a las instituciones.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="conclusiones">
-      <h2>6. Conclusiones</h2>
-      <p>
-        La privacidad se redefine constantemente en la sociedad tecnológica. 
-        Frente a los avances científicos, es necesario fortalecer los marcos éticos, legales y educativos que permitan proteger la libertad individual sin detener el progreso. 
-        Comprender el fenómeno desde CTS nos ayuda a construir un futuro más consciente y equilibrado entre ciencia, poder y humanidad.
-      </p>
+    <!-- Casos Reales -->
+    <section id="casos">
+      <h2>6. Casos Reales de Vigilancia Masiva</h2>
+      <div class="casos-container">
+        <article class="caso">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg" alt="Edward Snowden" />
+          <div>
+            <h3>Edward Snowden (2013)</h3>
+            <p>Reveló el programa global de espionaje electrónico de la NSA, exponiendo la magnitud de la vigilancia estatal en Internet.</p>
+          </div>
+        </article>
+
+        <article class="caso">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Cambridge_Analytica_logo.svg" alt="Cambridge Analytica" />
+          <div>
+            <h3>Cambridge Analytica (2018)</h3>
+            <p>Usó millones de datos de usuarios de Facebook para manipular decisiones políticas, mostrando el poder de los algoritmos en la democracia.</p>
+          </div>
+        </article>
+
+        <article class="caso">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Beijing_Skyline_2020.jpg" alt="China" />
+          <div>
+            <h3>Crédito Social en China</h3>
+            <p>Un sistema que evalúa el comportamiento de los ciudadanos mediante IA y vigilancia, premiando o sancionando según sus acciones digitales.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="citas">
-      <h2>7. Frases destacadas de la bibliografía CTS</h2>
-      <p>Fragmentos y reflexiones de autores que analizan la relación entre ciencia, tecnología y poder:</p>
+    <!-- Mini test -->
+    <section id="test">
+      <h2>7. ¿Qué tan vigilado estás?</h2>
+      <div class="quiz">
+        <p>1️⃣ ¿Usás contraseñas distintas en cada red?</p>
+        <button class="btn" data-value="1">Sí</button>
+        <button class="btn" data-value="0">No</button>
 
-      <div class="quote">
-        <img src="https://cdn.pixabay.com/photo/2021/05/19/18/46/cyber-security-6268578_1280.png" alt="Ciberseguridad" class="quote-img">
-        <blockquote>
-          “La información es poder, pero el poder no siempre se usa con transparencia. La tecnología amplifica nuestras capacidades, pero también nuestros riesgos.”  
-          <cite>– Nick Bostrom, <em>Superinteligencia</em> (2014)</cite>
-        </blockquote>
+        <p>2️⃣ ¿Leés los permisos antes de instalar una app?</p>
+        <button class="btn" data-value="1">Sí</button>
+        <button class="btn" data-value="0">No</button>
+
+        <p>3️⃣ ¿Usás verificación en dos pasos (2FA)?</p>
+        <button class="btn" data-value="1">Sí</button>
+        <button class="btn" data-value="0">No</button>
+
+        <div id="result"></div>
       </div>
-
-      <div class="quote">
-        <img src="https://cdn.pixabay.com/photo/2020/07/02/19/08/privacy-5365149_1280.png" alt="Privacidad en línea" class="quote-img">
-        <blockquote>
-          “La tecnociencia no sólo transforma el mundo físico, sino también la estructura misma de las relaciones sociales.”  
-          <cite>– Javier Echeverría, <em>La revolución tecnocientífica</em> (1999)</cite>
-        </blockquote>
-      </div>
-
-      <div class="quote">
-        <img src="https://cdn.pixabay.com/photo/2021/04/06/19/42/surveillance-6155838_1280.png" alt="Vigilancia digital" class="quote-img">
-        <blockquote>
-          “Vivimos en un entorno donde las máquinas observan, registran y predicen nuestras acciones. La privacidad se convierte en una ilusión.”  
-          <cite>– Nicholas Carr, <em>Atrapados</em> (2011)</cite>
-        </blockquote>
-      </div>
-
-      <blockquote>
-        “El desafío del siglo XXI no es sólo crear conocimiento, sino decidir qué hacemos con él.”  
-        <cite>– Edward O. Wilson, <em>El sentido de la existencia humana</em> (2014)</cite>
-      </blockquote>
     </section>
 
+    <!-- Bibliografía -->
     <section id="refs">
-      <h2>8. Bibliografía y Prompts Usados</h2>
+      <h2>8. Bibliografía</h2>
       <ul>
         <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
         <li>Han, B. C. (2013). <em>La sociedad de la transparencia</em>. Herder.</li>
-        <li>Prompt IA: “Explicame paso a paso cómo publicar una web en Railway con GitHub” — ChatGPT, 01/11/2025 18:00 (GMT-3).</li>
-        <li>Prompt IA: “Generar estructura CTS sobre privacidad y vigilancia masiva” — ChatGPT, 01/11/2025 18:45 (GMT-3).</li>
+        <li>Bostrom, N. (2014). <em>Superinteligencia</em>. Debate.</li>
       </ul>
     </section>
-  </div>
+  </main>
 
   <footer>
-    <p>© 2025 - Proyecto CTS: Privacidad y Vigilancia Masiva | Desarrollado por Pili</p>
+    <p>© 2025 - Proyecto CTS: Privacidad y Vigilancia Masiva</p>
   </footer>
 
-  <!-- Script FAQ -->
-  <script>
-    const questions = document.querySelectorAll(".faq-question");
-    questions.forEach(q => {
-      q.addEventListener("click", () => {
-        const answer = q.nextElementSibling;
-        const open = answer.style.display === "block";
-        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-        answer.style.display = open ? "none" : "block";
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
