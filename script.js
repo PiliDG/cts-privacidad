@@ -1,4 +1,4 @@
-// Animación del encabezado
+// Encabezado animado
 document.addEventListener("DOMContentLoaded", () => {
   const text = "Bienvenidos al Proyecto CTS: Privacidad y Vigilancia Masiva";
   const typewriter = document.getElementById("typewriter");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   typing();
 });
 
-// FAQ interactivo
+// FAQ
 const questions = document.querySelectorAll(".faq-question");
 questions.forEach(q => {
   q.addEventListener("click", () => {
@@ -24,38 +24,25 @@ questions.forEach(q => {
   });
 });
 
-// Mini test con selección permanente por pregunta
+// Test: cada opción queda marcada en gris
 let score = 0;
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
 
-// Cada pregunta tendrá sus propios botones
-const questions = [];
-let currentQuestionIndex = -1;
-
 buttons.forEach(btn => {
-  // Cada grupo de dos botones pertenece a una pregunta
-  const questionId = btn.previousElementSibling?.textContent || "pregunta";
-  questions.push(questionId);
-
   btn.addEventListener("click", () => {
-    // Quitar selección previa dentro de la misma pregunta
+    // desmarcar botones de esa pregunta
     const parent = btn.parentNode;
-    const siblings = parent.querySelectorAll(".btn");
-    siblings.forEach(sib => sib.classList.remove("selected"));
-
-    // Marcar el botón elegido
+    parent.querySelectorAll(".btn").forEach(sib => sib.classList.remove("selected"));
+    // marcar el elegido
     btn.classList.add("selected");
 
-    // Calcular puntaje total nuevamente
+    // recalcular puntuación total
     const allSelected = document.querySelectorAll(".quiz .btn.selected");
     score = 0;
-    allSelected.forEach(sel => {
-      score += parseInt(sel.dataset.value);
-    });
+    allSelected.forEach(sel => (score += parseInt(sel.dataset.value)));
 
-    // Mostrar resultado dinámico
-    const total = 6;
+    // mostrar resultado
     if (score >= 5) {
       resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
     } else if (score >= 3) {
