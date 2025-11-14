@@ -1,11 +1,10 @@
-// -------------------------
-// 1) Efecto máquina de escribir
-// -------------------------
+// ✨ Encabezado animado (máquina de escribir)
 document.addEventListener("DOMContentLoaded", () => {
   const text = "Bienvenidos al Proyecto CTS: Privacidad y Vigilancia Masiva";
   const typewriter = document.getElementById("typewriter");
-  let i = 0;
+  if (!typewriter) return;
 
+  let i = 0;
   function typing() {
     if (i < text.length) {
       typewriter.textContent += text.charAt(i);
@@ -16,120 +15,93 @@ document.addEventListener("DOMContentLoaded", () => {
   typing();
 });
 
-// -------------------------
-// 2) FAQ Interactivo
-// -------------------------
-document.querySelectorAll(".faq-question").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const answer = btn.nextElementSibling;
-    const visible = answer.style.display === "block";
-
-    document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-    answer.style.display = visible ? "none" : "block";
+// 💬 FAQ interactivo (abre una respuesta por vez)
+const questions = document.querySelectorAll(".faq-question");
+questions.forEach(q => {
+  q.addEventListener("click", () => {
+    const answer = q.nextElementSibling;
+    const isOpen = answer.style.display === "block";
+    document.querySelectorAll(".faq-answer").forEach(a => (a.style.display = "none"));
+    answer.style.display = isOpen ? "none" : "block";
   });
 });
 
-// -------------------------
-// 3) TEST – puntaje y feedback
-// -------------------------
+// 🧠 Test: suma puntaje y muestra resultado
 let score = 0;
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
-const answered = new Set();
+const answered = new Set(); // guarda qué preguntas ya se respondieron
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    const question = btn.previousElementSibling?.textContent || "";
     btn.classList.add("selected");
+    const questionText = btn.previousElementSibling?.textContent || "";
 
-    if (!answered.has(question)) {
-      answered.add(question);
+    // solo suma la primera respuesta de cada pregunta
+    if (!answered.has(questionText)) {
+      answered.add(questionText);
       score += parseInt(btn.dataset.value);
     }
 
+    if (!resultDiv) return;
+
     if (score >= 5) {
-      resultDiv.textContent = "💪 Sos muy cuidadosa con tu privacidad digital.";
+      resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
     } else if (score >= 3) {
-      resultDiv.textContent = "🧠 Tenés un equilibrio entre libertad y protección.";
+      resultDiv.textContent = "🧠 Mantenés un equilibrio entre libertad y seguridad digital.";
     } else {
-      resultDiv.textContent = "😅 Estás un poco expuesta... ¡Podés mejorar!";
+      resultDiv.textContent = "😅 Compartís mucho... ¡Atención con tu huella digital!";
     }
   });
 });
 
-// -------------------------
-// 4) ANIMACIÓN de las barras cuando entran en pantalla
-// -------------------------
-const bars = document.querySelectorAll(".bar");
-let barsAnimated = false;
+// 📚 Carrusel automático de libros
+const carousel = document.querySelector(".carousel");
+if (carousel) {
+  let scrollAmount = 0;
+  const scrollStep = 220;
+  const scrollDelay = 12000;
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !barsAnimated) {
-      barsAnimated = true;
-      bars.forEach(bar => {
-        const width = bar.style.getPropertyValue("--target-width");
-        bar.style.width = width;
-      });
+  function autoScroll() {
+    if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 5) {
+      carousel.scrollTo({ left: 0, behavior: "smooth" });
+      scrollAmount = 0;
+    } else {
+      scrollAmount += scrollStep;
+      carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
+  }
+
+  let autoScrollInterval = setInterval(autoScroll, scrollDelay);
+
+  // Pausa cuando el usuario interactúa
+  carousel.addEventListener("mouseenter", () => clearInterval(autoScrollInterval));
+  carousel.addEventListener("mouseleave", () => {
+    autoScrollInterval = setInterval(autoScroll, scrollDelay);
   });
-}, { threshold: 0.4 });
-
-bars.forEach(bar => observer.observe(bar));
-
-// -------------------------
-// 5) SCROLL SUAVE
-// -------------------------
-document.querySelectorAll("a[href^='#']").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 60,
-        behavior: "smooth"
-      });
-    }
-  });
-});
-
-// -------------------------
-// 6) Animación Fade-In para TODAS las secciones
-// -------------------------
-const fadeElements = document.querySelectorAll("section, header");
-
-fadeElements.forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(20px)";
-  el.style.transition = "all .8s ease";
-});
-
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, { threshold: 0.2 });
-
-fadeElements.forEach(el => fadeObserver.observe(el));
-
-// -------------------------
-// 7) Formulario de contacto (simulado)
-// -------------------------
-const contactForm = document.querySelector(".contact-form");
-const contactResponse = document.getElementById("contact-response");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", e => {
-    e.preventDefault();
-
-    contactResponse.textContent = "🌸 ¡Gracias! Tu mensaje fue enviado correctamente.";
-    contactForm.reset();
-
+  carousel.addEventListener("wheel", () => {
+    clearInterval(autoScrollInterval);
     setTimeout(() => {
-      contactResponse.textContent = "";
-    }, 3500);
+      autoScrollInterval = setInterval(autoScroll, scrollDelay);
+    }, 7000);
+  });
+}
+
+// 🖼️ Fallback para imágenes de Casos (si alguna no carga)
+document.querySelectorAll("#casos img").forEach(img => {
+  img.addEventListener("error", () => {
+    img.src = "https://cdn.pixabay.com/photo/2021/04/06/19/42/surveillance-6155838_1280.png";
+  });
+});
+
+// 📩 Formulario de contacto (mensaje de confirmación)
+const contactForm = document.querySelector(".contact-form");
+const responseMsg = document.getElementById("contact-response");
+
+if (contactForm && responseMsg) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    responseMsg.textContent = "✔ Gracias por tu mensaje. Nos pondremos en contacto pronto.";
+    contactForm.reset();
   });
 }
