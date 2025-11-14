@@ -21,6 +21,7 @@
       <a href="#libros">Libros</a>
       <a href="#test">Test</a>
       <a href="#refs">Bibliografía</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </div>
 
@@ -110,7 +111,7 @@
         <div class="casos-container">
           <article class="caso">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Edward_Snowden-2.jpg"
-                 onerror="this.src='https://cdn.pixabay.com/photo/2021/05/19/18/46/cyber-security-6268578_1280.png';" 
+                 onerror="this.src='https://cdn.pixabay.com/photo/2021/05/19/18/46/cyber-security-6268578_1280.png'" 
                  alt="Edward Snowden" />
             <div>
               <h3>Edward Snowden (2013)</h3>
@@ -120,7 +121,7 @@
 
           <article class="caso">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Cambridge_Analytica_logo.svg"
-                 onerror="this.src='https://cdn.pixabay.com/photo/2020/07/02/19/08/privacy-5365149_1280.png';"
+                 onerror="this.src='https://cdn.pixabay.com/photo/2020/07/02/19/08/privacy-5365149_1280.png'"
                  alt="Cambridge Analytica" />
             <div>
               <h3>Cambridge Analytica (2018)</h3>
@@ -130,7 +131,7 @@
 
           <article class="caso">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Beijing_Skyline_2020.jpg"
-                 onerror="this.src='https://cdn.pixabay.com/photo/2021/04/06/19/42/surveillance-6155838_1280.png';"
+                 onerror="this.src='https://cdn.pixabay.com/photo/2021/04/06/19/42/surveillance-6155838_1280.png'"
                  alt="Crédito Social China" />
             <div>
               <h3>Crédito Social en China</h3>
@@ -149,87 +150,100 @@
       <div class="book-card">
         <h3> Nick Bostrom – Superinteligencia</h3>
         <p><strong>Aporte:</strong> Analiza los riesgos del desarrollo de la IA, incluyendo la vigilancia y pérdida de autonomía humana.</p>
-        <p><strong>Relevancia:</strong> En el Contexto científico y tecnológico o Impacto ético.</p>
-        <blockquote>“Según Bostrom (2014), la inteligencia artificial avanzada puede convertirse en un sistema capaz de recolectar y analizar toda la información humana.”</blockquote>
+        <p><strong>Relevancia:</strong> Contexto científico y tecnológico.</p>
       </div>
       <div class="book-card">
         <h3> Javier Echeverría – La revolución tecnocientífica</h3>
         <p><strong>Aporte:</strong> Explica cómo la tecnociencia redefine las relaciones sociales y de poder.</p>
-        <p><strong>Relevancia:</strong> Análisis desde la perspectiva CTS.</p>
-        <blockquote>“Echeverría (1999) sostiene que la tecnociencia crea nuevas formas de control y dependencia tecnológica.”</blockquote>
+        <p><strong>Relevancia:</strong> Análisis CTS.</p>
       </div>
       <div class="book-card">
         <h3> Nicholas Carr – Atrapados</h3>
         <p><strong>Aporte:</strong> Analiza cómo la hiperconectividad afecta la atención y la conducta.</p>
         <p><strong>Relevancia:</strong> Impacto social y ético.</p>
-        <blockquote>“Carr (2011) advierte que la hiperconectividad genera una subjetividad moldeada por algoritmos.”</blockquote>
       </div>
       <div class="book-card">
-        <h3>🔍 Nassim Nicholas Taleb – El cisne negro</h3>
+        <h3> Nassim Nicholas Taleb – El cisne negro</h3>
         <p><strong>Aporte:</strong> Aborda la imprevisibilidad de sistemas complejos como el big data.</p>
-        <p><strong>Relevancia:</strong> Innovación del grupo.</p>
-        <blockquote>“Taleb (2007) sugiere que los sistemas basados en predicciones pueden amplificar eventos imprevistos.”</blockquote>
+        <p><strong>Relevancia:</strong> Innovación.</p>
       </div>
       <div class="book-card">
-        <h3>🔍 Edward O. Wilson – El sentido de la existencia humana</h3>
+        <h3> Edward O. Wilson – El sentido de la existencia humana</h3>
         <p><strong>Aporte:</strong> Integra ciencia y ética para un futuro equilibrado.</p>
         <p><strong>Relevancia:</strong> Conclusiones.</p>
-        <blockquote>“Wilson plantea que la ciencia debe integrarse con la ética para garantizar un futuro sostenible.”</blockquote>
       </div>
     </div>
   </section>
 
-  <!-- Test -->
+  <!-- TEST + ESTADÍSTICAS -->
   <section id="test">
     <h2>5. ¿Qué tan vigilado estás?</h2>
-    <div class="quiz">
-      <p>1. ¿Usás contraseñas diferentes en cada red social?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <p>2. ¿Leés los permisos antes de instalar una aplicación?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <p>3. ¿Usás verificación en dos pasos (2FA)?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <p>4. ¿Usás buscadores o navegadores que prioricen tu privacidad?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <p>5. ¿Limitás la ubicación y acceso a tus fotos en el celular?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <p>6. ¿Desactivás las cookies de seguimiento cuando navegás?</p>
-      <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
-      <div id="result"></div>
-    </div>
 
-    <div id="estadisticas">
-  <h3>📊 Resultados de la clase</h3>
-  <div class="stats-container">
-    <!-- Cada barra representa una pregunta -->
-    <div class="stat-item">
-      <p><strong>Pregunta 1</strong> — Sí 60% / No 40%</p>
-      <div class="bar yes" style="width:60%"></div>
+    <div class="test-y-stats">
+
+      <!-- TEST -->
+      <div class="quiz test-col">
+        <p>1. ¿Usás contraseñas diferentes en cada red social?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <p>2. ¿Leés los permisos antes de instalar una aplicación?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <p>3. ¿Usás verificación en dos pasos (2FA)?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <p>4. ¿Usás buscadores o navegadores que prioricen tu privacidad?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <p>5. ¿Limitás la ubicación y acceso a tus fotos en el celular?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <p>6. ¿Desactivás las cookies de seguimiento cuando navegás?</p>
+        <button class="btn" data-value="1">Sí</button><button class="btn" data-value="0">No</button>
+
+        <div id="result"></div>
+      </div>
+
+      <!-- ESTADÍSTICAS -->
+      <div id="estadisticas" class="stats-col">
+        <h3>📊 Resultados de la clase</h3>
+        <div class="stats-container">
+
+          <div class="stat-item">
+            <p><strong>Pregunta 1</strong> — Sí 60% / No 40%</p>
+            <div class="bar yes" style="width:60%"></div>
+          </div>
+
+          <div class="stat-item">
+            <p><strong>Pregunta 2</strong> — Sí 14% / No 86%</p>
+            <div class="bar yes" style="width:14%"></div>
+          </div>
+
+          <div class="stat-item">
+            <p><strong>Pregunta 3</strong> — Sí 71% / No 29%</p>
+            <div class="bar yes" style="width:71%"></div>
+          </div>
+
+          <div class="stat-item">
+            <p><strong>Pregunta 4</strong> — Sí 21% / No 79%</p>
+            <div class="bar yes" style="width:21%"></div>
+          </div>
+
+          <div class="stat-item">
+            <p><strong>Pregunta 5</strong> — Sí 46% / No 54%</p>
+            <div class="bar yes" style="width:46%"></div>
+          </div>
+
+          <div class="stat-item">
+            <p><strong>Pregunta 6</strong> — Sí 7% / No 93%</p>
+            <div class="bar yes" style="width:7%"></div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-    <div class="stat-item">
-      <p><strong>Pregunta 2</strong> — Sí 14% / No 86%</p>
-      <div class="bar yes" style="width:14%"></div>
-    </div>
-    <div class="stat-item">
-      <p><strong>Pregunta 3</strong> — Sí 71% / No 29%</p>
-      <div class="bar yes" style="width:71%"></div>
-    </div>
-    <div class="stat-item">
-      <p><strong>Pregunta 4</strong> — Sí 21% / No 79%</p>
-      <div class="bar yes" style="width:21%"></div>
-    </div>
-    <div class="stat-item">
-      <p><strong>Pregunta 5</strong> — Sí 46% / No 54%</p>
-      <div class="bar yes" style="width:46%"></div>
-    </div>
-    <div class="stat-item">
-      <p><strong>Pregunta 6</strong> — Sí 7% / No 93%</p>
-      <div class="bar yes" style="width:7%"></div>
-    </div>
-  </div>
-</div>
   </section>
-  
 
   <!-- Bibliografía -->
   <section id="refs">
@@ -243,48 +257,49 @@
         <a href="https://www.sciencedirect.com/topics/computer-science/mass-surveillance" target="_blank">ScienceDirect</a></li>
       <li><em>How We Investigated Mass Surveillance in Argentina</em>. 
         <a href="https://pulitzercenter.org/resource/how-we-investigated-mass-surveillance-argentina" target="_blank">Pulitzer Center</a></li>
+
       <li>
-  📺 <em>Video recomendado:</em> 
-  <a href="https://www.youtube.com/watch?v=jD1JpZ2Jj0Y" target="_blank">
-    ¿Qué es la vigilancia masiva? — Explicación clara
-  </a>
-</li>
+        📺 <em>Video recomendado:</em>
+        <a href="https://www.youtube.com/watch?v=jD1JpZ2Jj0Y" target="_blank">
+          ¿Qué es la vigilancia masiva? — Explicación clara
+        </a>
+      </li>
 
-<li>
-  <a href="https://safety.google/intl/es_ALL/safety/" target="_blank">
-    Google Safety: Herramientas de privacidad y seguridad
-  </a>
-</li>
+      <li>
+        <a href="https://safety.google/intl/es_ALL/safety/" target="_blank">
+          Google Safety: Herramientas de privacidad y seguridad
+        </a>
+      </li>
 
-<li>
-  <a href="https://telefonicatech.com/blog/privacidad-y-seguridad-en-internet-en-que-se-diferencian-y-su-impacto-en-tu-reputacion-online"
-     target="_blank">
-    Privacidad y seguridad en internet — Telefónica Tech
-  </a>
-</li>
+      <li>
+        <a href="https://telefonicatech.com/blog/privacidad-y-seguridad-en-internet-en-que-se-diferencian-y-su-impacto-en-tu-reputacion-online"
+           target="_blank">
+          Privacidad y seguridad en internet — Telefónica Tech
+        </a>
+      </li>
     </ul>
   </section>
-  
-<!-- CONTACTO -->
-<section id="contacto">
-  <h2>7. Contacto</h2>
-  <p>Si tenés dudas, inquietudes o querés dejar un comentario sobre la vigilancia digital, podés hacerlo acá:</p>
 
-  <form class="contact-form">
-    <label>Nombre</label>
-    <input type="text" placeholder="Tu nombre..." required>
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>7. Contacto</h2>
+    <p>Si tenés dudas, inquietudes o querés dejar un comentario sobre la vigilancia digital, podés hacerlo acá:</p>
 
-    <label>Email</label>
-    <input type="email" placeholder="tuemail@gmail.com" required>
+    <form class="contact-form">
+      <label>Nombre</label>
+      <input type="text" placeholder="Tu nombre..." required>
 
-    <label>Mensaje</label>
-    <textarea rows="5" placeholder="Escribí tu consulta acá..." required></textarea>
+      <label>Email</label>
+      <input type="email" placeholder="tuemail@gmail.com" required>
 
-    <button type="submit">Enviar mensaje</button>
-  </form>
+      <label>Mensaje</label>
+      <textarea rows="5" placeholder="Escribí tu consulta acá..." required></textarea>
 
-  <p id="contact-response"></p>
-</section>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <p id="contact-response"></p>
+  </section>
 
   <footer>
     <p>© 2025 - Proyecto CTS: Privacidad y Vigilancia Masiva</p>
@@ -293,7 +308,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
