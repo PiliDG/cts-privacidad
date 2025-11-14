@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!typewriter) return;
 
   let i = 0;
+  typewriter.textContent = ""; // aseguramos que arranca vacío
+
   function typing() {
     if (i < text.length) {
       typewriter.textContent += text.charAt(i);
@@ -12,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(typing, 60);
     }
   }
+
   typing();
 });
 
@@ -26,25 +29,45 @@ questions.forEach(q => {
   });
 });
 
-// 🧠 Test: suma puntaje y muestra resultado
-let score = 0;
+// 🧠 Test: suma puntaje y muestra resultado (versión corregida)
 const buttons = document.querySelectorAll(".quiz .btn");
 const resultDiv = document.getElementById("result");
-const answered = new Set(); // guarda qué preguntas ya se respondieron
+const answers = {}; // guarda la respuesta elegida por cada pregunta
+
+// Función para identificar a qué pregunta pertenece cada botón
+function getQuestionId(btn) {
+  let prev = btn.previousElementSibling;
+  while (prev && prev.tagName !== "P") {
+    prev = prev.previousElementSibling;
+  }
+  return prev ? prev.textContent.trim() : "";
+}
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    btn.classList.add("selected");
-    const questionText = btn.previousElementSibling?.textContent || "";
-
-    // solo suma la primera respuesta de cada pregunta
-    if (!answered.has(questionText)) {
-      answered.add(questionText);
-      score += parseInt(btn.dataset.value);
-    }
-
     if (!resultDiv) return;
 
+    const questionId = getQuestionId(btn);
+    if (!questionId) return;
+
+    // 1) Sacar la selección anterior de esa misma pregunta
+    buttons.forEach(b => {
+      if (getQuestionId(b) === questionId) {
+        b.classList.remove("selected");
+      }
+    });
+
+    // 2) Marcar el botón actual
+    btn.classList.add("selected");
+
+    // 3) Guardar la respuesta elegida y recalcular el puntaje
+    const value = parseInt(btn.dataset.value || "0", 10);
+    answers[questionId] = Number.isNaN(value) ? 0 : value;
+
+    let score = 0;
+    Object.values(answers).forEach(v => score += v);
+
+    // 4) Mostrar mensaje según el puntaje total
     if (score >= 5) {
       resultDiv.textContent = "💪 Sos muy consciente y cuidadosa con tu privacidad digital.";
     } else if (score >= 3) {
