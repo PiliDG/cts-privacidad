@@ -252,10 +252,12 @@ footer {
   overflow: hidden;
   border-right: 2px solid var(--lightpink);
   white-space: nowrap;
-  animation: typing 3s steps(40,end), blink .75s step-end infinite;
+  /* Solo dejamos el blink, el efecto de escribir lo hace JS */
+  animation: blink .75s step-end infinite;
   font-size: 2.2em;
   color: var(--lightpink);
 }
+
 
 @keyframes typing { from { width: 0 } to { width: 100% } }
 @keyframes blink { 50% { border-color: transparent } }
@@ -263,3 +265,4 @@ footer {
 @media (max-width: 900px) { 
   .content-layout { flex-direction: column; }
 }
+
