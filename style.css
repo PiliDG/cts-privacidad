@@ -237,3 +237,17 @@ footer {
 @media (max-width: 900px) { 
   .content-layout { flex-direction: column; }
 }
+
+/* Animación barras */
+.bar {
+  height: 18px;
+  background: var(--pink);
+  border-radius: 8px;
+  width: 0%;
+  animation: growBar 2s ease forwards;
+}
+
+@keyframes growBar {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
