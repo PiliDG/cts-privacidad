@@ -83,3 +83,15 @@ if (carousel) {
     }, 7000);
   });
 }
+
+// 📩 Formulario de contacto (solo mensaje visual, no envía a un servidor real)
+const contactForm = document.querySelector(".contact-form");
+const responseMsg = document.getElementById("contact-response");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    responseMsg.textContent = "✔ Gracias por tu mensaje. Nos pondremos en contacto pronto.";
+    contactForm.reset();
+  });
+}
